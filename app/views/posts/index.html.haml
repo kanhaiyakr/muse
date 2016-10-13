@@ -1,10 +1,19 @@
-- @posts.each do |post|
-	%h2= link_to post.title, post
-	= link_to (image_tag post.image.url(:small)),post
-	%p
-		= link_to post.comments.count
-		Comments
-	%p
-		= post.get_likes.size
-		Likes
-= link_to "Add New Insperation", new_post_path	
+#posts
+	- @posts.each do |post|
+		.post
+			.post_image
+				= image_tag post.image.url(:small)
+			.post_content
+				.title
+					%h2= link_to post.title, post
+				.data
+					%p
+						Shared by
+						= post.user.name
+					%p
+						%span
+							%i.fa.fa-comments-o
+							= post.comments.count
+						%span
+							%i.fa.fa-thumbs-up
+							= post.get_likes.size
