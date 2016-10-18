@@ -53,4 +53,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   #Needed For Devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config/application.rb
+  config.assets.initialize_on_precompile = false
 end
